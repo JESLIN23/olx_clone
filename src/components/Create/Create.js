@@ -10,7 +10,7 @@ const Create = () => {
   const [price, setPrice] = useState('')
   const [image, setImage] = useState(null)
   const {firebase} = useContext(firebaseContext)
-  const {user} = useContext(authContext)
+
   const submitHandler = ((e) => {
     e.preventDefault()
     firebase.storage().ref(`/image/${image.name}`).put(image).then(({ref}) => {
