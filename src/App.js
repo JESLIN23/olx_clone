@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 import Signup from './Pages/Signup';
 import Login from './Pages/Login'
 import Create from './Pages/Create'
+import ViewPost from './Pages/ViewPost'
 import { authContext, firebaseContext } from './store/Context';
 
 function App() {
@@ -12,7 +13,6 @@ function App() {
   const {firebase} = useContext(firebaseContext)
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user)=> {
-      console.log(user)
       setUser(user)
     })
   })
@@ -30,6 +30,9 @@ function App() {
         </Route>
         <Route path='/create'>
           <Create/>
+        </Route>
+        <Route path='/viewpost'>
+          <ViewPost/>
         </Route>
       </Router>
       

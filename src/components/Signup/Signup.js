@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import Logo from '../../olx-logo.png';
 import { firebaseContext } from '../../store/Context';
@@ -31,7 +31,7 @@ export default function Signup() {
   return (
     <div>
       <div className="signupParentDiv">
-        <img width="200px" height="200px" src={Logo} alt=''></img>
+        {/* <img width="200px" height="200px" src={Logo} alt=''></img> */}
         <form onSubmit={signupHandler}>
           <label htmlFor="fname">Username</label>
           <br />
@@ -84,7 +84,7 @@ export default function Signup() {
           <br />
           <button>Signup</button>
         </form>
-        <a href='#'>Login</a>
+        <Link to='/login'>Login</Link>
       </div>
     </div>
   );

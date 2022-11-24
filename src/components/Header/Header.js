@@ -8,6 +8,7 @@ import Arrow from '../../assets/Arrow';
 import SellButton from '../../assets/SellButton';
 import SellButtonPlus from '../../assets/SellButtonPlus';
 import { authContext, firebaseContext } from '../../store/Context';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const {user} = useContext(authContext)
@@ -44,18 +45,19 @@ function Header() {
           <Arrow></Arrow>
         </div>
         <div className="loginPage">
-          <span>{user ? `Welcome ${user.displayName}` : 'Login'}</span>
+          <span>{user ? `${user.displayName}` : 'Login'}</span>
           <hr />
         </div>
         {user && <span onClick={logoutHandler}>Logout</span>}
-
-        <div className="sellMenu">
+        <Link to='/create'>
+        <div className="sellMenu" >
           <SellButton></SellButton>
-          <div className="sellMenuContent">
+          <div className="sellMenuContent" >
             <SellButtonPlus></SellButtonPlus>
             <span>SELL</span>
           </div>
         </div>
+        </Link>
       </div>
     </div>
   );
